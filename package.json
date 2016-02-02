@@ -1,6 +1,7 @@
 {
 	"name": "@doctormckay/steam-webapi",
 	"version": "1.0.0",
+	"description": "Yet another Steam WebAPI client Node.js module",
 	"author": "Alexander Corn <mckay@doctormckay.com>",
 	"url": "https://github.com/DoctorMcKay/node-steam-webapi",
 	"license": "MIT",
