@@ -5,7 +5,8 @@ This is [yet another](https://www.npmjs.com/search?q=steam+api) node.js module f
 other modules are any good, but anyone is of course welcome to use it. Don't expect too many updates outside of fixing
 stuff.
 
-It detects and handles errors from the `X-eresult` and `X-error_message` headers.
+It detects and handles errors from the `X-eresult` and `X-error_message` headers. It also requests gzip compression for
+responses.
 
 # Constructor
 
