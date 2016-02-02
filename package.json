@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"author": "Alexander Corn <mckay@doctormckay.com>",
 	"url": "https://github.com/DoctorMcKay/node-steam-webapi",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/DoctorMcKay/node-steam-webapi"
