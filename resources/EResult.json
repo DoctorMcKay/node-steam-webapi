@@ -99,5 +99,9 @@
 	"98": "RefundToWallet",
 	"99": "EmailSendFailure",
 	"100": "NotSettled",
-	"101": "NeedCaptcha"
+	"101": "NeedCaptcha",
+	"102": "GSLTDenied",
+	"103": "GSOwnerDenied",
+	"104": "InvalidItemType",
+	"105": "IPBanned"
 }
