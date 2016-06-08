@@ -17,6 +17,7 @@ function SteamWebAPI(key, localAddress) {
 }
 
 SteamWebAPI.prototype.domain = "api.steampowered.com";
+SteamWebAPI.prototype.userAgent = "https://www.npmjs.com/package/@doctormckay/steam-webapi v" + require('./package.json').version;
 SteamWebAPI.prototype.localAddress = null;
 
 SteamWebAPI.prototype.get = function(iface, method, version, input, callback) {
@@ -37,12 +38,20 @@ SteamWebAPI.prototype._req = function(httpMethod, iface, method, version, input,
 	input = input || {};
 
 	for (var i in input) {
-		if (input.hasOwnProperty(i) && input[i] instanceof Array) {
+		if (!input.hasOwnProperty(i)) {
+			continue;
+		}
+		
+		if (input[i] instanceof Array) {
 			input[i].forEach(function(value, index) {
 				input[i + '[' + index + ']'] = value;
 			});
 
 			delete input[i];
+		}
+		
+		if (Buffer.isBuffer(input[i])) {
+			input[i] = input[i].toString('binary'); // QueryString.stringify will translate this into percent-encoded
 		}
 	}
 
@@ -70,7 +79,7 @@ SteamWebAPI.prototype._req = function(httpMethod, iface, method, version, input,
 		"path": path,
 		"headers": {
 			"Accept-Encoding": "gzip",
-			"User-Agent": "https://www.npmjs.com/package/@doctormckay/steam-webapi v" + require('./package.json').version
+			"User-Agent": this.userAgent
 		}
 	}, function(res) {
 		var err = new Error();
