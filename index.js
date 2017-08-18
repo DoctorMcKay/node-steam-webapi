@@ -48,10 +48,10 @@ SteamWebAPI.prototype._req = function(httpMethod, iface, method, version, input,
 			});
 
 			delete input[i];
-		}
-		
-		if (Buffer.isBuffer(input[i])) {
+		} else if (Buffer.isBuffer(input[i])) {
 			input[i] = input[i].toString('binary'); // QueryString.stringify will translate this into percent-encoded
+		} else if (typeof input[i] === 'object') {
+			input[i] = input[i].toString();
 		}
 	}
 
